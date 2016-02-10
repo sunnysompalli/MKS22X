@@ -14,9 +14,12 @@ public class QueenBoard{
      *final configuration of the board after adding 
      *all n queens.
      */
-    public boolean solve()
-    {
-	return false;
+    public boolean solve(){
+	return solveHelper(0);
+    }
+
+    private boolean solveHelper(int x){
+
     }
 
     public void printSolution(){
@@ -26,15 +29,7 @@ public class QueenBoard{
 	 */
     }
 
-
-
-
-
-
-
-
-
-    public boolean addQueen(int row, int col){
+    private boolean addQueen(int row, int col){
 	if(board[row][col] != 0){
 	    return false;
 	}
@@ -48,13 +43,12 @@ public class QueenBoard{
 	    if(row + offset < board.length){
 		board[row+offset][col+offset]--;
 	    }
-	    col++;
 	    offset++;
 	}
 	return true;
     }
 
-    public boolean removeQueen(int row, int col){
+    private boolean removeQueen(int row, int col){
 	if(board[row][col] != 1){
 	    return false;
 	}
@@ -68,7 +62,6 @@ public class QueenBoard{
 	    if(row + offset < board.length){
 		board[row+offset][col+offset]++;
 	    }
-	    col++;
 	    offset++;
 	}
 	return true;
@@ -85,12 +78,8 @@ public class QueenBoard{
 	return ans;
     }
 
-
-
-
-    
     public static void main(String[]args){
-	QueenBoard b = new QueenBoard(5);
+	QueenBoard b = new QueenBoard(4);
         System.out.println(b);
 	b.addQueen(3,0);
 	b.addQueen(0,1);
@@ -98,6 +87,5 @@ public class QueenBoard{
 	b.removeQueen(3,0);
         System.out.println(b);
     }
-
 
 }
