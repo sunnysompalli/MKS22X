@@ -15,15 +15,24 @@ public class QueenBoard{
      *all n queens.
      */
     public boolean solve(){
-	return solveHelper(0, 0);
+	return solveHelper(0);
     }
 
-    private boolean solveHelper(int row, int col){
-	//if (col < 0) return false;
-	//if (col > board.length) return true;
-	//if (row > board.length) return solveHelper(0, col - 1);
-	//if (addQueen(row, col)) return solveHelper(0, col + 1);
-	return true;
+    private boolean solveHelper(int col){
+	if (col < 0) return false;
+        if (col >= board.length) return true;
+	for(int row = 0; row <= board.length; row ++){
+	    if(addQueen(row, col)){
+		if(solveHelper(col + 1)){
+		    return true;
+		}
+	    }else{
+		removeQueen(row, col);
+	    }
+	    if (row == board.length) return solveHelper(col - 1);
+	}
+	return false;
+
     }
 
     public void printSolution(){
@@ -101,7 +110,8 @@ public class QueenBoard{
 	b.removeQueen(3,0);
         System.out.println(b);
 	b.printSolution();
-	
+	System.out.println(b.solve());
+        b.printSolution();
     }
 
 }
