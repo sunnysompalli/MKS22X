@@ -15,28 +15,14 @@ public class QueenBoard{
      *all n queens.
      */
     public boolean solve(){
-	return solveHelper(0, 0);
+	return solveHelper(0);
     }
 
-    private boolean solveHelper(int row, int col){
-	//if (col < 0) return false;
-	//if (col > board.length) return true;
-	//if (row > board.length) return solveHelper(0, col - 1);
-	//if (addQueen(row, col)) return solveHelper(0, col + 1);
-	return true;
+    private boolean solveHelper(int x){
+
     }
 
     public void printSolution(){
-        String ans = "";
-        for(int r = 0; r < board.length; r++){
-            for(int c = 0; c < board[0].length; c++){
-                if (board[r][c] <= 0) ans+= "_\t";
-		if (board[r][c] == 1) ans+= "Q\t";
-            }
-            ans+="\n";
-        }
-        System.out.println(ans);
-
 	/**Print the board like toString, except
 	   all negative numbers, and 0's are replaced with '_'
 	   and all 1's are replaced with 'Q'
@@ -91,7 +77,7 @@ public class QueenBoard{
 	}
 	return ans;
     }
-    
+
     public static void main(String[]args){
 	QueenBoard b = new QueenBoard(4);
         System.out.println(b);
@@ -100,8 +86,6 @@ public class QueenBoard{
         System.out.println(b);
 	b.removeQueen(3,0);
         System.out.println(b);
-	b.printSolution();
-	
     }
 
 }
