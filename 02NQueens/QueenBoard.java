@@ -23,13 +23,17 @@ public class QueenBoard{
         if (col >= board.length) return true;
 	for(int row = 0; row <= board.length; row ++){
 	    if(addQueen(row, col)){
+	        printSolution();
 		if(solveHelper(col + 1)){
 		    return true;
 		}
-	    }else{
-		removeQueen(row, col);
+	    
+		
 	    }
-	    if (row == board.length) return solveHelper(col - 1);
+	    if (row == board.length){
+		if(removeQueen(row, col)){
+		    return solveHelper(col - 1);
+	    }
 	}
 	return false;
 
