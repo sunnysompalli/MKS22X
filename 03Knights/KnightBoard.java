@@ -85,7 +85,6 @@ public class KnightBoard{
     }
 
 
-    /*
     //Tests
     public static void main(String[]args){
 	KnightBoard A = new KnightBoard(5);
@@ -100,7 +99,10 @@ public class KnightBoard{
 	System.out.println(C.solve());
 	C.printSolution();
 
+	KnightBoard D = new KnightBoard(6);
+	System.out.println(D.solve());
+	D.printSolution();
+
     }
-    */
 
 }
