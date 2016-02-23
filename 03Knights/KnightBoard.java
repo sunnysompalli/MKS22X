@@ -15,7 +15,14 @@ public class KnightBoard{
     }
 
     public boolean solve(){
-	return solveH(0, 0, 0);
+	for(int i = 0; i < knightboard.length; i++){
+	    for(int j = 0; j < knightboard[0].length; j++){
+		if(solveH(i, j, 1)){
+		    return true;
+		}
+	    }
+	}
+	return false;
     }
 
     private boolean solveH(int row, int col, int n){
@@ -30,11 +37,11 @@ public class KnightBoard{
 	}
 	if(col >= knightboard[0].length){
 	    return false;
-	}  
-	if(knightboard[row][col] != -1){
+	}
+	if(knightboard[row][col] != 0){
 	    return false;
 	}
-	if(n == (knightboard.length * knightboard[0].length - 1)){
+	if(n == (knightboard.length * knightboard[0].length)){
 	    knightboard[row][col] = n;
 	    return true;
 	}
@@ -50,14 +57,17 @@ public class KnightBoard{
 	       solveH(row - 2, col + 1, n + 1) ||
 	       solveH(row - 2, col - 1, n + 1)
 	       ){
-		printSolution();
 		return true;
 	    }
 	    else{
-		knightboard[row][col] = -1;
-		return false;
+		remove(row, col);
 	    }
 	}
+	return false;
+    }
+
+    private void remove(int row, int col){
+	knightboard[row][col] = 0;
     }
 
     public void printSolution(){
@@ -75,12 +85,22 @@ public class KnightBoard{
     }
 
 
-
+    /*
     //Tests
     public static void main(String[]args){
 	KnightBoard A = new KnightBoard(5);
 	System.out.println(A.solve());
 	A.printSolution();
+
+	KnightBoard B = new KnightBoard(2);
+	System.out.println(B.solve());
+	B.printSolution();
+
+	KnightBoard C = new KnightBoard(3);
+	System.out.println(C.solve());
+	C.printSolution();
+
     }
+    */
 
 }
