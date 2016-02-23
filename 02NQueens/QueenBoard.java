@@ -21,24 +21,19 @@ public class QueenBoard{
     private boolean solveHelper(int col){
 	if (col < 0) return false;
         if (col >= board.length) return true;
-	for(int row = 0; row <= board.length; row ++){
+	for(int row = 0; row < board.length; row ++){
 	    if(addQueen(row, col)){
-	        printSolution();
+		addQueen(row, col);
+		printSolution();
 		if(solveHelper(col + 1)){
 		    return true;
 		}
-	    
-		
-	    }
-	    if (row == board.length){
-		if(removeQueen(row, col)){
-		    return solveHelper(col - 1);
+		removeQueen(row, col);
 	    }
 	}
 	return false;
-
     }
-
+	
     public void printSolution(){
         String ans = "";
         for(int r = 0; r < board.length; r++){
@@ -105,6 +100,7 @@ public class QueenBoard{
 	return ans;
     }
     
+    /*
     public static void main(String[]args){
 	QueenBoard b = new QueenBoard(4);
         System.out.println(b);
@@ -116,6 +112,14 @@ public class QueenBoard{
 	b.printSolution();
 	System.out.println(b.solve());
         b.printSolution();
+	QueenBoard b1 = new QueenBoard(1);
+	QueenBoard b2 = new QueenBoard(2);
+        System.out.println(b1.solve());
+        b1.printSolution();
+        System.out.println(b2.solve());
+        b2.printSolution();
+
     }
+    */
 
 }
