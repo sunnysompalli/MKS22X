@@ -19,7 +19,14 @@ public class Maze{
       3. When the file is not found, print an error and exit the program.
     */
     public Maze(String filename, boolean ani){
-	animate = ani; 
+	animate = ani;
+	try{
+	    File file = new File(filename);
+	    Scanner in = new Scanner(file);
+	}
+	catch (FileNotFoundException e){
+	    System.out.println("File not found");
+	}
     }
 
 
