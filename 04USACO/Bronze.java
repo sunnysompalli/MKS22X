@@ -36,8 +36,18 @@ public class Bronze{
 	}
     }
 
-    public void final(int E){
-	
+    public String final(int E){
+	int sum = 0;
+	for(int i = 0; i < pasture.length; i++){
+	    for(int j = 0; j < pasture[0].length; j++){
+		pasture[i][j] = E - pasture[i][j];
+		if(pasture[i][j] < 0){
+		    pasture[i][j] = 0;
+		}
+		sum += pasture[i][j];
+	    }
+	}
+	return (sum * 72 * 72) + ",6,Sompalli,Sunny";
     }
 
 
