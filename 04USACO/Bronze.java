@@ -2,9 +2,9 @@ import java.util.*;
 import java.io.*;
 
 public class Bronze{
-    private int[][] pasture;
+    private static int[][] pasture;
 
-    public void stomp(int R_s, int C_s, int D_s){
+    public static void stomp(int R_s, int C_s, int D_s){
 	R_s -= 1;
 	C_s -= 1;
 	int max = pasture[R_s][C_s];
@@ -13,17 +13,16 @@ public class Bronze{
 		max = Math.max(max, pasture[i][j]);
 	    }
 	}
-	int new = max - D_s;
 	for(int i = R_s; i < Math.min(pasture.length - 1, R_s + 3); i++){
 	    for(int j = C_s; j < Math.min(pasture[0].length - 1, C_s + 3); j++){
-		if(pasture[i][j] > new){
-		    pasture[i][j] = new;
+		if(pasture[i][j] > max - D_s){
+		    pasture[i][j] = max - D_s;
 		}
 	    }
 	}
     }
 
-    public String final(int E){
+    public static String fin(int E){
 	int sum = 0;
 	for(int i = 0; i < pasture.length; i++){
 	    for(int j = 0; j < pasture[0].length; j++){
@@ -38,27 +37,27 @@ public class Bronze{
     }
 
 
-    public static void main(String[args]){
+    public static void main(String[]args){
 	try{
 	    File f = new File("makelake.in");
 	    Scanner in = new Scanner(f);
-	    int R = f.nextInt();
-	    int C = f.nextInt();
-	    int E = f.nextInt();
-	    int N = f.nextInt();
+	    int R = in.nextInt();
+	    int C = in.nextInt();
+	    int E = in.nextInt();
+	    int N = in.nextInt();
 	    pasture = new int[R][C];
 	    for(int i = 0; i < R; i++){
 		for(int j = 0; j < C; j++){
-		    pasture[i][j] = f.nextInt();
+		    pasture[i][j] = in.nextInt();
 		}
 	    }
 
 	    while(N > 0){
-		stomp(f.nextInt(), f.nextInt(), f.nextInt());
+		stomp(in.nextInt(), in.nextInt(), in.nextInt());
 		N -= 1;
 	    }
 
-	    System.out.println(final(E));
+	    System.out.println(fin(E));
 
 	}
 	catch (FileNotFoundException e){
