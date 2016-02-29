@@ -61,7 +61,7 @@ public class Maze{
             System.out.println("No starting point 'S' found in maze.");
             return false;
         }else{
-            maze[startx][starty] = ' ';
+            maze[startx][starty] = ' '; //Getting NullPointerException here
             return solve(startx,starty);
         }
     }
