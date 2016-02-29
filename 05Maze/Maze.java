@@ -32,7 +32,7 @@ public class Maze{
 	        n = in.nextLine();
 		cols = n.length();
 	    }
-	    char[][] maze = new char[rows][cols];
+	    char[][]maze = new char[rows][cols];
 	    for(int r = 0; r < rows; r++){
 		n = in2.nextLine();
 		for(int c = 0; c < cols; c++){
@@ -44,6 +44,7 @@ public class Maze{
 		}
 	    }
 	    animate=ani;
+	    System.out.println(maze[startx][starty]);
 	}
 	catch (FileNotFoundException e){
 	    System.out.println("File not found");
@@ -61,6 +62,9 @@ public class Maze{
             System.out.println("No starting point 'S' found in maze.");
             return false;
         }else{
+	    System.out.println(startx);
+	    System.out.println(starty);
+	    System.out.println(maze);
             maze[startx][starty] = ' '; //Getting NullPointerException here
             return solve(startx,starty);
         }
