@@ -23,6 +23,27 @@ public class Maze{
 	try{
 	    File file = new File(filename);
 	    Scanner in = new Scanner(file);
+	    Scanner in2 = new Scanner(file);
+	    int rows = 0;
+	    int cols = 0;
+	    String n;
+	    while(in.hasNextLine()){
+		rows += 1;
+	        n = in.nextLine();
+		cols = n.length();
+	    }
+	    char[][] maze = new char[rows][cols];
+	    for(int r = 0; r < rows; r++){
+		n = in2.nextLine();
+		for(int c = 0; c < cols; c++){
+		    maze[r][c] = n.charAt(c);
+		    if(n.charAt(c) == 'S'){
+			startx = r;
+			starty = c;
+		    }
+		}
+	    }
+	    animate=ani;
 	}
 	catch (FileNotFoundException e){
 	    System.out.println("File not found");
@@ -63,10 +84,9 @@ public class Maze{
         if(animate){
             System.out.println(this);
             wait(20);
-        }
+	}
 
-        //COMPLETE SOLVE
-        return false; //so it compiles
+	return false;
     }
 
 
