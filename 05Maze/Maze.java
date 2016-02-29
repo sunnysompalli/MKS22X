@@ -86,6 +86,22 @@ public class Maze{
             wait(20);
 	}
 
+	if (maze[x][y] == 'E') {
+	    return true;
+	}
+	if (maze[x][y] != ' ') {
+	    return false;
+	}
+	maze[x][y] = '@';
+	if(
+	    (solve(x + 1,y)) ||
+	    (solve(x - 1,y)) ||
+	    (solve(x, y + 1)) ||
+	    (solve(x, y - 1))
+	){
+	    return true;
+	}
+	maze[x][y] = '.';
 	return false;
     }
 
