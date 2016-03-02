@@ -32,11 +32,8 @@ public class Maze{
 	        n = in.nextLine();
 		cols = n.length();
 	    }
-<<<<<<< HEAD
 	    maze = new char[rows][cols];
-=======
 	    char[][]maze = new char[rows][cols];
->>>>>>> c291356bc3f0a37e86312a01f1a5115717430cec
 	    for(int r = 0; r < rows; r++){
 		n = in2.nextLine();
 		for(int c = 0; c < cols; c++){
@@ -49,7 +46,6 @@ public class Maze{
 	    }
 	    
 	    animate=ani;
-	    System.out.println(maze[startx][starty]);
 	}
 	catch (FileNotFoundException e){
 	    System.out.println("File not found");
@@ -70,7 +66,7 @@ public class Maze{
 	    System.out.println(startx);
 	    System.out.println(starty);
 	    System.out.println(maze);
-            maze[startx][starty] = ' '; //Getting NullPointerException here
+            maze[startx][starty] = ' ';
             return solve(startx,starty);
         }
     }
