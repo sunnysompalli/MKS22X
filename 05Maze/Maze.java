@@ -32,7 +32,7 @@ public class Maze{
 	        n = in.nextLine();
 		cols = n.length();
 	    }
-	    char[][] maze = new char[rows][cols];
+	    maze = new char[rows][cols];
 	    for(int r = 0; r < rows; r++){
 		n = in2.nextLine();
 		for(int c = 0; c < cols; c++){
@@ -43,6 +43,7 @@ public class Maze{
 		    }
 		}
 	    }
+	    
 	    animate=ani;
 	}
 	catch (FileNotFoundException e){
