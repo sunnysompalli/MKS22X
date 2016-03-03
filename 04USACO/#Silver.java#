@@ -67,7 +67,7 @@ public class Silver{
 				grid[i][j] += holder[i][j + 1];
 			    }
 			}
-			if (j < grid[0].length - 1){
+			if (i < grid.length - 1){
 			    if (holder[i - 1][j] >= 1){
 				grid[i][j] += holder[i - 1][j];
 			    }
