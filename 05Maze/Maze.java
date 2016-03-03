@@ -63,9 +63,6 @@ public class Maze{
             System.out.println("No starting point 'S' found in maze.");
             return false;
         }else{
-	    System.out.println(startx);
-	    System.out.println(starty);
-	    System.out.println(maze);
             maze[startx][starty] = ' ';
             return solve(startx,starty);
         }
