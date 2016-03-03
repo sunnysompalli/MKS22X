@@ -43,7 +43,7 @@ public class Silver{
 
 
     public int solve(){
-	grid[startx][starty] = 1;
+	grid[startx - 1][starty - 1] = 1;
 	while (steps > 0){
 	    int[][]holder = new int[grid.length][grid[0].length];
 	    for (int i = 0; i < grid.length; i++){
@@ -57,22 +57,22 @@ public class Silver{
 	    for (int i = 0; i < grid.length; i++){
 		for (int j = 0; j < grid[0].length; j++){
 		    if (grid[i][j] != -1){
-			if (i > 0){
+			if (i < grid.length - 1){
 			    if (holder[i + 1][j] >= 1){
 				grid[i][j] += holder[i + 1][j];
 			    }
 			}
-			if (j > 0){
+			if (j < grid[0].length - 1){
 			    if (holder[i][j + 1] >= 1){
 				grid[i][j] += holder[i][j + 1];
 			    }
 			}
-			if (j < grid[0].length - 1){
+			if (i > 0){
 			    if (holder[i - 1][j] >= 1){
 				grid[i][j] += holder[i - 1][j];
 			    }
 			}
-			if (j < grid[0].length - 1){
+			if (j > 0){
 			    if (holder[i][j - 1] >= 1){
 				grid[i][j] += holder[i][j - 1];
 			    }
@@ -82,7 +82,7 @@ public class Silver{
 	    }
 	    steps --;
 	}
-	return grid[endx][endy];
+	return grid[endx - 1][endy - 1];
     }
     
 
