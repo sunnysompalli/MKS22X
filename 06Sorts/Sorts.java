@@ -52,31 +52,30 @@ public class Sorts{
 	}
     }
 
-    public int[] mergesort(int[] ary){
+    /*public static void mergesort(int[] ary){
 	if (ary.length > 1){
 	    int[] subary1 = new int[ary.length / 2];
 	    int[] subary2 = new int[ary.length - subary1.length];
 	    for (int i = 0; i < subary1.length; i++){
 		subary1[i] = ary[i];
-	    }
+	    }	    
 	    for (int j = 0; j < subary2.length; j++){
-		subary[2] = ary[j + subary1.length];
+		subary2[j] = ary[j + subary1.length];
 	    }
+	    
 	    mergesort(subary1);
 	    mergesort(subary2);
 	    
-	} else {
-	    return mergeH(subary1, subary2);
 	}
     }
 
-    private int[] mergeH(int[] ary1, int[] ary2){
+    private void mergeH(int[] ary1, int[] ary2){
 	int[] combo = new int[ary1.length + ary2.length];
 	int counter1 = 0;
 	int counter2 = 0;
 	int i = 0;
 	while (i < combo.length){
-	    while (counter1 < art1.length && counter2 < ary2.length){
+	    while (counter1 < ary1.length && counter2 < ary2.length){
 		if (ary1[counter1] <= ary2[counter2]){
 		    combo[i] = ary1[counter1];
 		    counter1++;
@@ -85,7 +84,7 @@ public class Sorts{
 		}
 		i++;
 	    }
-	    if (!(counter1 < art1.length)){
+	    if (!(counter1 < ary1.length)){
 		combo[i] = ary2[counter2];
 		i++;
 		counter2++;
@@ -93,8 +92,15 @@ public class Sorts{
 		combo[i] = ary1[counter1];
 		i++;
 		counter1++;
-	    }
-	}
-	return combo;
+		}
+		}
+		combo; // copy combo back to ary
+		}*/
+
+
+    public static void mergesort(int[] ary){
+	selectionSort(ary); //temporary until i figure this out
     }
+
+    //public static void mergeH(int[] ary, int 
 }
