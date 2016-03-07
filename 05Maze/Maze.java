@@ -33,7 +33,6 @@ public class Maze{
 		cols = n.length();
 	    }
 	    maze = new char[rows][cols];
-	    char[][]maze = new char[rows][cols];
 	    for(int r = 0; r < rows; r++){
 		n = in2.nextLine();
 		for(int c = 0; c < cols; c++){
@@ -45,7 +44,7 @@ public class Maze{
 		}
 	    }
 	    
-	    animate=ani;
+	    animate = ani;
 	}
 	catch (FileNotFoundException e){
 	    System.out.println("File not found");
@@ -106,10 +105,9 @@ public class Maze{
 	return false;
     }
 
-
     //FREE STUFF!!! *you should be aware of this*
 
-    public void clearTerminal(){
+       public void clearTerminal(){
         System.out.println(CLEAR_SCREEN);
     }
 
@@ -128,7 +126,7 @@ public class Maze{
             if(c == '#'){
                 ans += color(38,47)+c;
             }else{
-                ans += color(32,40)+c;
+                ans += color(33,40)+c;
             }
         }
         return HIDE_CURSOR + go(0,0) + ans + "\n" + SHOW_CURSOR + color(37,40);
@@ -158,5 +156,6 @@ public class Maze{
 
     
     //END FREE STUFF
+
 
 }

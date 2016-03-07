@@ -1,10 +1,12 @@
 public class Driver05{
 
     public static void main(String[]args){
-        Maze m1 = new Maze("data1.dat", true);
-        m1.clearTerminal();
-        m1.solve();
-        m1.clearTerminal();
-        System.out.println(m1);
+ Maze f;
+        f = new Maze("data1.dat",true);
+        System.out.println(f.toString());
+	f.clearTerminal();
+	f.solve();
+        f.clearTerminal();
+        System.out.println(f);
     }
 }
