@@ -74,12 +74,27 @@ public class Sorts{
 	int[] combo = new int[ary1.length + ary2.length];
 	int counter1 = 0;
 	int counter2 = 0;
-	for (int i = 0; i < combo.length; i++){
+	int i = 0;
+	while (i < combo.length){
 	    while (counter1 < art1.length && counter2 < ary2.length){
 		if (ary1[counter1] <= ary2[counter2]){
-		    
+		    combo[i] = ary1[counter1];
+		    counter1++;
+		} else {
+		    combo[i] = ary2[counter2];
 		}
+		i++;
+	    }
+	    if (!(counter1 < art1.length)){
+		combo[i] = ary2[counter2];
+		i++;
+		counter2++;
+	    } else {
+		combo[i] = ary1[counter1];
+		i++;
+		counter1++;
 	    }
 	}
+	return combo;
     }
 }
