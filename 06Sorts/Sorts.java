@@ -103,4 +103,10 @@ public class Sorts{
 	    data[j] = combo[j];
 	}
     }
+
+
+    public static String name(){
+	return "6,Sompalli,Sunny"; 
+    }
+
 }
