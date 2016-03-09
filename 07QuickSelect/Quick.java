@@ -31,6 +31,19 @@ public class Quick{
 	}
     }
 
-
+    public static int quickselect(int[]data, int k){
+	int right = data.length - 1;
+	int left = 0;
+	int i = partition(data, left, right);
+	while (i != k){
+	    if (i < k){
+		left = i + 1;
+	    } else if (i > k){
+		right = i - 1;
+	    }
+	    i = partition(data, left, right);
+	}
+	return data[i];
+    }
     
 }
