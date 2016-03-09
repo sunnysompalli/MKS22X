@@ -49,6 +49,10 @@ public class Quick{
 	return data[i];
     }
 
+    public static String name(){
+	return "6,Sompalli,Sunny";
+    }
+
     /*
     public static void main(String[]args){
 	int[]data = {2, 12, 13, 1, -5, 3, 2, 18, 6, 21, 84, -16, 0, 21};
