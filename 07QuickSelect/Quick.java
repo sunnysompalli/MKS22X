@@ -4,7 +4,7 @@ public class Quick{
 	int initial = ((int)(Math.random() * (right - left))) + left;
 	int holder;
 	int rightend = right;
-	data[initial] = num;
+	int num = data[initial];
 	data[initial] = data[right];
 	data[right] = num;
 	right--;
@@ -32,6 +32,9 @@ public class Quick{
     }
 
     public static int quickselect(int[]data, int k){
+	if (k < 0 || k >= data.length){
+	    throw new IllegalArgumentException();
+	}
 	int right = data.length - 1;
 	int left = 0;
 	int i = partition(data, left, right);
@@ -45,5 +48,24 @@ public class Quick{
 	}
 	return data[i];
     }
-    
+
+    /*
+    public static void main(String[]args){
+	int[]data = {2, 12, 13, 1, -5, 3, 2, 18, 6, 21, 84, -16, 0, 21};
+	System.out.println(quickselect(data, 0));
+	System.out.println(quickselect(data, 6));
+	System.out.println(quickselect(data, 7));
+	System.out.println(quickselect(data, 8));
+	System.out.println(quickselect(data, 9));
+	System.out.println(quickselect(data, 13));
+	
+	int[]ary = {4, 7, 1, 5, 12, 91, 43, 26, 10, -100, -10, -5, 61};
+	System.out.println(quickselect(ary, 0));
+	System.out.println(quickselect(ary, 5));
+	System.out.println(quickselect(ary, 6));
+	System.out.println(quickselect(ary, 7));
+	System.out.println(quickselect(ary, 11));
+	System.out.println(quickselect(ary, 12));
+    }
+    */
 }
