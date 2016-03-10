@@ -73,10 +73,9 @@ public class Quick{
 	return "6,Sompalli,Sunny";
     }
 
-    
+    /*
     public static void main(String[]args){
 	int[]data = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
-	//System.out.println(quickselect(data, 0));
 	System.out.println(quickselect(data, 6));
 
 	int[]data2 = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
@@ -84,4 +83,5 @@ public class Quick{
 	quickSort(data2);
 	System.out.println(Arrays.toString(data2));
     }
+    */
 }
