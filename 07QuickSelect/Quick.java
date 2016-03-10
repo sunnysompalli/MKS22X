@@ -49,27 +49,33 @@ public class Quick{
 	return data[i];
     }
 
+    public static void quickSort(int[]data){
+	int index = partition(data, 0, data.length - 1);
+	quickSort(data, 0, i);
+	quickSort(data, i + 1, data.length - 1);
+    }
+
+    public static void quickSort(int[]data, int left, int right){
+	if (left != right){
+	    int index = partition(data, left, right);
+	    quickSort(data, left, index);
+	    quickSort(data, index + 1, right);
+	}
+    }
+
     public static String name(){
 	return "6,Sompalli,Sunny";
     }
 
-    /*
+    
     public static void main(String[]args){
-	int[]data = {2, 12, 13, 1, -5, 3, 2, 18, 6, 21, 84, -16, 0, 21};
+	int[]data = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
 	System.out.println(quickselect(data, 0));
 	System.out.println(quickselect(data, 6));
-	System.out.println(quickselect(data, 7));
-	System.out.println(quickselect(data, 8));
-	System.out.println(quickselect(data, 9));
-	System.out.println(quickselect(data, 13));
-	
-	int[]ary = {4, 7, 1, 5, 12, 91, 43, 26, 10, -100, -10, -5, 61};
-	System.out.println(quickselect(ary, 0));
-	System.out.println(quickselect(ary, 5));
-	System.out.println(quickselect(ary, 6));
-	System.out.println(quickselect(ary, 7));
-	System.out.println(quickselect(ary, 11));
-	System.out.println(quickselect(ary, 12));
+
+	int[]data2 = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
+	System.out.println(Arrays.toString(data));
+	quickSort(data);
+	System.out.println(Arrays.toString(data));
     }
-    */
 }
