@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Quick{
 
     private static int partition(int[]data, int left, int right){
@@ -51,15 +53,19 @@ public class Quick{
 
     public static void quickSort(int[]data){
 	int index = partition(data, 0, data.length - 1);
-	quickSort(data, 0, i);
-	quickSort(data, i + 1, data.length - 1);
+	quickSort(data, 0, index);
+	if (index <= data.length - 2){
+	    quickSort(data, index + 1, data.length - 1);
+	}
     }
 
     public static void quickSort(int[]data, int left, int right){
 	if (left != right){
 	    int index = partition(data, left, right);
 	    quickSort(data, left, index);
-	    quickSort(data, index + 1, right);
+	    if (index <= right - 1){
+		quickSort(data, index + 1, right);
+	    }
 	}
     }
 
@@ -70,12 +76,12 @@ public class Quick{
     
     public static void main(String[]args){
 	int[]data = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
-	System.out.println(quickselect(data, 0));
+	//System.out.println(quickselect(data, 0));
 	System.out.println(quickselect(data, 6));
 
 	int[]data2 = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
-	System.out.println(Arrays.toString(data));
-	quickSort(data);
-	System.out.println(Arrays.toString(data));
+	System.out.println(Arrays.toString(data2));
+	quickSort(data2);
+	System.out.println(Arrays.toString(data2));
     }
 }
