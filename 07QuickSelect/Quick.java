@@ -1,7 +1,7 @@
 public class Quick{
 
     private static int partition(int[]data, int left, int right){
-	int initial = ((int)(Math.random() * (right - left))) + left;
+	int initial = ((int)(Math.random() * (right - left + 1))) + left;
 	int holder;
 	int rightend = right;
 	int num = data[initial];
