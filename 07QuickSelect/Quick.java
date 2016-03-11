@@ -37,18 +37,28 @@ public class Quick{
 	if (k < 0 || k >= data.length){
 	    throw new IllegalArgumentException();
 	}
-	int right = data.length - 1;
-	int left = 0;
+	return quickselect(data, k, 0, data.length - 1);
+    }
+
+    private static int quickselect(int[]data, int k, int left, int right){
 	int i = partition(data, left, right);
-	while (i != k){
+	if (i == k){
+	    return data[i];
+	} else {
 	    if (i < k){
-		left = i + 1;
-	    } else if (i > k){
-		right = i - 1;
+		if (i + 1 == right){
+		    return data[right];
+		} else {
+		    return quickselect(data, k, i + 1, right);
+		}
+	    } else {
+		if (i - 1 == left){
+		    return data[left];
+		} else {
+		    return quickselect(data, k, left, i - 1);
+		}
 	    }
-	    i = partition(data, left, right);
 	}
-	return data[i];
     }
 
     public static void quickSort(int[]data){
@@ -77,6 +87,7 @@ public class Quick{
     public static void main(String[]args){
 	int[]data = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
 	System.out.println(quickselect(data, 6));
+	System.out.println(Arrays.toString(data));	
 
 	int[]data2 = {2, 0, 3, 8, 5, 7, 1, 9, 4, 6};
 	System.out.println(Arrays.toString(data2));
