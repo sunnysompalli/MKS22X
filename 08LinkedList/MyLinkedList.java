@@ -58,6 +58,31 @@ public class MyLinkedList{
     public int size(){
 	return size;
     }
+
+    public int get(int index){
+	LNode p = head;
+	for (int i = 0; i < index; i++){
+	    p = p.getNext();
+	}
+	return p.getValue();
+    }
+
+    public int set(int index, int newValue){
+	LNode p = head;
+	for (int i = 0; i < index; i++){
+	    p = p.getNext();
+	}
+	int ans = p.getValue();
+	p.setValue(newValue);
+	return ans;
+    }
+
+    public int remove(int index){
+	LNode p = head;
+	for (int i = 0; i < index - 1; i++){
+	    p = p.getNext();
+	}
+    }
    
     public static void main(String[]args){
 	MyLinkedList m = new MyLinkedList();
@@ -69,6 +94,9 @@ public class MyLinkedList{
 	m.add(54);
 	m.add(-10);
 	m.add(47);
+	System.out.println(m);
+	System.out.println(m.get(24));
+	System.out.println(m.set(24, 1000));
 	System.out.println(m);
     }
 }
