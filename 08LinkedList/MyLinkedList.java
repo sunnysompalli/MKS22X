@@ -118,7 +118,8 @@ public class MyLinkedList<T>{
 	    return i;
 	}
     }
-   
+
+    /*
     public static void main(String[]args){
 	MyLinkedList<Integer> m = new MyLinkedList();
 	int i = 0;
@@ -137,4 +138,5 @@ public class MyLinkedList<T>{
 	System.out.println(m);
 	System.out.println(m.indexOf(-10));
     }
+    *?
 }
