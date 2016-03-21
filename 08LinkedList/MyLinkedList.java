@@ -82,6 +82,11 @@ public class MyLinkedList{
 	for (int i = 0; i < index - 1; i++){
 	    p = p.getNext();
 	}
+	LNode q = p.getNext();
+	int ans = q.getValue();
+	q = q.getNext(); 
+	p.setNext(q);
+	return ans;
     }
    
     public static void main(String[]args){
@@ -97,6 +102,8 @@ public class MyLinkedList{
 	System.out.println(m);
 	System.out.println(m.get(24));
 	System.out.println(m.set(24, 1000));
+	System.out.println(m);
+	System.out.println(m.remove(24));
 	System.out.println(m);
     }
 }
