@@ -18,7 +18,7 @@ public class MyLinkedList<T>{
 	public void setValue(T v){
 	    value = v;
 	}
-	public void setNext(LNode n){
+	public void setNext(LNode<T> n){
 	    next = n;
 	}
     }
@@ -43,7 +43,7 @@ public class MyLinkedList<T>{
  
     public String toString(){
 	String ans = "[";
-	LNode p = head;
+	LNode<T> p = head;
 	while(p != null){
 	    ans += p.getValue();
 	    if(p.getNext()!= null){
@@ -91,13 +91,13 @@ public class MyLinkedList<T>{
 
     public boolean add(int index, T value){
 	if(head == null){
-	    head = new LNode(value);
+	    head = new LNode<T>(value);
 	}else{
 	    LNode<T> p = head;			
 	    for (int i = 0; i < index - 1; i++){
 		p = p.getNext();
 	    }
-	    LNode<T> q = new LNode(value);
+	    LNode<T> q = new LNode<T>(value);
 	    q.setNext(p.getNext());
 	    p.setNext(q);
 	}
@@ -121,7 +121,7 @@ public class MyLinkedList<T>{
 
     /*
     public static void main(String[]args){
-	MyLinkedList<Integer> m = new MyLinkedList();
+	MyLinkedList<Integer> m = new MyLinkedList<Integer>();
 	int i = 0;
 	while(i < 100){
 	    m.add(i);
@@ -138,5 +138,6 @@ public class MyLinkedList<T>{
 	System.out.println(m);
 	System.out.println(m.indexOf(-10));
     }
-    *?
+    */
+    
 }
