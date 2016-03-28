@@ -40,21 +40,21 @@ public class Driver{
 
 
         //replace toString(true) with a debug to string that shows the head/tail
-        System.out.println(m.toString(true));
+        System.out.println(m);
         System.out.println(n);
 
         //test removing from head/tail/middle
         m.remove(0);
         n.remove(0);
-        System.out.println(m.toString(true));
+        System.out.println(m);
 
         m.remove(2);
         n.remove(2);
-        System.out.println(m.toString(true));
+        System.out.println(m);
 
         m.remove(m.size()-1);
         n.remove(n.size()-1);
-        System.out.println(m.toString(true));
+        System.out.println(m);
         System.out.println(n);
 
         //test adding to end/start
@@ -62,13 +62,13 @@ public class Driver{
         n.add(0,"START");
         m.add(m.size(),"PENULTIMATE");
         n.add(n.size(),"PENULTIMATE");
-        System.out.println(m.toString(true));
+        System.out.println(m);
         System.out.println(n);
 
         //test add
         m.add("Z-END!");
         n.add("Z-END!");
-        System.out.println(m.toString(true));
+        System.out.println(m);
         System.out.println(n);
 
         //test remove random items:
@@ -91,7 +91,7 @@ public class Driver{
                 }
             }
         }
-        System.out.println(m.toString(true));
+        System.out.println(m);
         System.out.println(n);
 
         /*test speed of add in front and at end.
