@@ -9,27 +9,21 @@ public class MyStack<T>{
 	L.add(0, item);
     }
 
-    /**
-     * @exception java.util.NoSuchElementException if the queue is empty.
-     */
     public T pop(){
-	if(L.size() == 0)
-	return L.remove(0);
+	if (L.size() == 0) throw new NoSuchElementException();
+        return L.remove(0);
     }
 
-    /**
-     * Returns the top item from the stack without popping it.
-     * @exception java.util.NoSuchElementException if the queue is empty.
-     */
-    T peek();
+    public T peek(){
+        if (L.size() == 0) throw new NoSuchElementException();
+	return L.get(0);
+    }
 
-    /**
-     * Returns the number of items currently in the stack.
-     */
-    int size();
+    public int size(){
+	return L.size();
+    }
 
-    /**
-     * Returns whether the stack is empty or not.
-     */
-    boolean isEmpty();
+    public boolean isEmpty(){
+	return size() == 0;
+    }
 }
