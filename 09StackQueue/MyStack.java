@@ -2,7 +2,7 @@ import java.util.*;
 public class MyStack<T>{
     private MyLinkedList<T> L;
 
-    public MyStack<T>(){
+    public MyStack(){
 	L = new MyLinkedList<T>();
     }
     public void push(T item){
