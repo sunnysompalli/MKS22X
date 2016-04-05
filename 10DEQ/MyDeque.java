@@ -4,7 +4,7 @@ public class MyDeque<T>{
     private int size;
     private int start;
     private int end;
-
+    
     @SuppressWarnings("unchecked")	    
     public MyDeque(){
 	ary = (T[]) new Object[10];
@@ -104,7 +104,7 @@ public class MyDeque<T>{
 	}
 	return ary[end];
     }
-    
+
 
     /*
     public String toString(){
