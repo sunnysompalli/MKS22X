@@ -5,11 +5,18 @@ public class MyLinkedList<T> implements Iterable<T>{
 	//instance variables
 	T value;
 	LNode<T> next;
+	LNode<T> previous;
 	
 	public LNode(T v){
 	    value = v;
 	}
 
+	public LNode<T> getPrevious(){
+	    return previous;
+	}
+	public void setPrevious(LNode<T> n){
+	    previous = n;
+	}
 	public T getValue(){
 	    return value;
 	}
