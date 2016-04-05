@@ -63,6 +63,47 @@ public class MyDeque<T>{
 	size++;
     }
 
+    public T removeFirst(){
+	if (size == 0){
+	    throw new NoSuchElementException();
+	}
+	T holder = ary[start];
+	if (start == ary.length - 1){
+	    start = 0;
+	} else {
+	    start++;
+	}
+	size--;
+        return holder;
+    }
+
+    public T removeLast(){
+	if (size == 0){
+	    throw new NoSuchElementException();
+	}
+	T holder = ary[end];
+	if (end == 0){
+	    end = ary.length - 1;
+	} else {
+	    end--;
+	}
+	size--;
+	return holder;
+    }
+
+    public T getFirst(){
+       	if (size == 0){
+	    throw new NoSuchElementException();
+	}
+	return ary[start];
+    }
+
+    public T getLast(){
+	if (size == 0){
+	    throw new NoSuchElementException();
+	}
+	return ary[end];
+    }
     
 
     /*
