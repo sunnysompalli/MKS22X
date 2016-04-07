@@ -14,11 +14,11 @@ public class MyDeque<T>{
     private void grow(){
 	T[] newary = (T[]) new Object[ary.length * 2];
 	for(int i = 0; i < ary.length; i++){
-	    newary[i] = ary[start];
-	    start++;
 	    if(start == ary.length){
 		start = 0;
 	    }
+	    newary[i] = ary[start];
+	    start++;
 	}
 	ary = newary;
 	start = 0;
@@ -105,17 +105,33 @@ public class MyDeque<T>{
 	return ary[end];
     }
 
+    public int size(){
+	return size;
+    }
+    
+    /* Doesn't work
 
-    /*
-    public String toString(){
+      public String toString(){
 	String ans = "";
 	ans += "[";
-	if (start > end){
-	    int n = size - start;
+	int n = start;
+	for(int i = 0; n <= ary.length - 1 || start < end; i++){
+	    if(n == ary.length){
+		n = 0;
+	    }
+	    ans += ary[i] + ", ";
+	    n++;
 	}
-	return ans;
+        n = 0;
+	for(int i = 0; n < end; i++){
+	    if(n == ary.length){
+	        n = 0;
+	    }
+	    ans += ary[i] + ", ";
+	    n++;
+	}
+	return ans + "]";
     }
     */
-    
-    
+
 }
