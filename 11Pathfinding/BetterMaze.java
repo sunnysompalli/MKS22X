@@ -3,7 +3,21 @@ import java.io.*;
 
 public class BetterMaze{
     private class Node{
+	Node prev;
+	int value;
 
+	private Node getPrev(){
+	    return prev;
+	}
+	private int getValue(){
+	    return value;
+	}
+	private void setPrev(Node p){
+	    prev = p;
+	}
+	private void setValue(int v){
+	    value = v;
+	}
     }
 
     private char[][] maze;
@@ -21,8 +35,14 @@ public class BetterMaze{
      *Postcondition:  the correct solution is in the returned array
     **/
     public int[] solutionCoordinates(){
-        /** IMPLEMENT THIS **/      
-	return new int[1];
+	if (solution == null){
+	    return new int[0];
+	}
+	int[]ans = new int[solution.length];
+	for (int i = 0; i < solution.length; i++){
+	    ans[i] = solution[i];
+	}
+	return ans;
     }    
 
 
@@ -30,7 +50,7 @@ public class BetterMaze{
     **/
     public boolean solveBFS(){  
         /** IMPLEMENT THIS **/      
-	return false;
+	return solve();
     }   
 
 
@@ -38,7 +58,7 @@ public class BetterMaze{
     */ 
     public boolean solveDFS(){  
         /** IMPLEMENT THIS **/  
-	return false;
+	return solve();
     }    
 
    /**Search for the end of the maze using the frontier. 
@@ -50,7 +70,9 @@ public class BetterMaze{
     }    
      
    /**mutator for the animate variable  **/
-    public void setAnimate(boolean b){  /** IMPLEMENT THIS **/ }    
+    public void setAnimate(boolean b){ 
+	animate = b;
+    }    
 
 
     public BetterMaze(String filename){
@@ -63,7 +85,6 @@ public class BetterMaze{
 	String ans = "";
 	try{
 	    Scanner in = new Scanner(new File(filename));
-
 	    //keep reading next line
 	    while(in.hasNext()){
 		String line = in.nextLine();
