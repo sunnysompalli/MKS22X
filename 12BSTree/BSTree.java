@@ -23,7 +23,21 @@ public class BSTree<T extends Comparable<T>>{
 	    right = r;
 	}
 	public String toString(){
-	    
+	    return toStringH("");
+	}
+	public String toStringH(String ans){
+	    ans += getData + " ";
+	    if (left != null){
+		toStringH(ans, left);
+	    } else {
+		ans += " _ ";
+	    }
+	    if (right != null){
+		toStringH(ans, right);
+	    } else {
+		ans += " _ ";
+	    }	    
+	    return ans;
 	}
     }
 
