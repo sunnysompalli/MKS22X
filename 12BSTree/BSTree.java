@@ -23,22 +23,24 @@ public class BSTree<T extends Comparable<T>>{
 	    right = r;
 	}
 	public String toString(){
-	    return toStringH("");
+	    return toStringH("", this);
 	}
-	public String toStringH(String ans){
-	    ans += getData + " ";
+	public String toStringH(String ans, Node n){
+	    ans += n.data + " ";
 	    if (left != null){
-		toStringH(ans, left);
+		n.toStringH(ans, left);
 	    } else {
 		ans += " _ ";
 	    }
 	    if (right != null){
-		toStringH(ans, right);
+		n.toStringH(ans, right);
 	    } else {
 		ans += " _ ";
 	    }	    
 	    return ans;
 	}
+
+	private Node root;
     }
 
 }
