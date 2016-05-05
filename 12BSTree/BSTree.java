@@ -65,7 +65,7 @@ public class BSTree<T extends Comparable<T>>{
 	}
 
 	public boolean nodeContains(T val){
-	    if (data == null){
+	    if (this == null){
 		return false;
 	    }
 	    else if (data.compareTo(val) == 0){
@@ -77,8 +77,31 @@ public class BSTree<T extends Comparable<T>>{
 		return right.nodeContains(val);
 	    }
 	}
+
+	public int getNodeHeight(){
+	    if (this == null){
+		return 0;
+	    } else {
+		int ans = 1;
+		ans += Math.max(left.getNodeHeight(), right.getNodeHeight());
+		return ans;
+	    }
+	}
     }
 
     private Node root;
+
+    public String toString(){
+	return root.toString();
+    }
+
+    public void add(T val){
+	if (root == null){
+	    root = new Node(val);
+	} else {
+	    root.nodeAdd(val);
+	}
+    }
+
 
 }
