@@ -46,6 +46,9 @@ public class BSTree<T extends Comparable<T>>{
 	}
 
 	public void nodeAdd(T val){
+	    if (this == null){
+		this = new Node(val);
+	    }
 	    if (val.compareTo(data) == 0){
 		throw new IllegalArgumentException();
 	    }
@@ -96,11 +99,15 @@ public class BSTree<T extends Comparable<T>>{
     }
 
     public void add(T val){
-	if (root == null){
-	    root = new Node(val);
-	} else {
-	    root.nodeAdd(val);
-	}
+	root.nodeAdd(val);
+    }
+
+    public boolean contains(T val){
+	return root.nodeContains(val);
+    }
+
+    public int getHeight(){
+	return root.getNodeHeight();
     }
 
 
