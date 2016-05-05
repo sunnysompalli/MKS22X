@@ -4,6 +4,10 @@ public class BSTree<T extends Comparable<T>>{
 	Node left,right;
 	T data;
 
+	public Node(T d){
+	    data = d;
+	}
+
 	public T getData(){
 	    return data;
 	}
@@ -22,6 +26,7 @@ public class BSTree<T extends Comparable<T>>{
 	public void setRight(Node r){
 	    right = r;
 	}
+
 	public String toString(){
 	    return toStringH("", this);
 	}
@@ -40,7 +45,40 @@ public class BSTree<T extends Comparable<T>>{
 	    return ans;
 	}
 
-	private Node root;
+	public void nodeAdd(T val){
+	    if (val.compareTo(data) == 0){
+		throw new IllegalArgumentException();
+	    }
+	    else if (val.compareTo(data) < 0){
+		if (left == null){
+		    left = new Node(val);
+		} else {
+		    left.nodeAdd(val);
+		}
+	    } else {
+		if (right == null){
+		    right = new Node(val);
+		} else {
+		    right.nodeAdd(val);
+		}
+	    }
+	}
+
+	public boolean nodeContains(T val){
+	    if (data == null){
+		return false;
+	    }
+	    else if (data.compareTo(val) == 0){
+		return true;
+	    }
+	    else if (data.compareTo(val) < 0){
+		return left.nodeContains(val);
+	    } else {
+		return right.nodeContains(val);
+	    }
+	}
     }
+
+    private Node root;
 
 }
